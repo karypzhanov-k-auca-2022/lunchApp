@@ -45,7 +45,7 @@ public class UserEntity {
     @Column(name = "role", nullable = false)
     private UserRole userRole = UserRole.USER;
 
-    @Column(name = "created_at", updatable = false)
+    @Column(name = "created_at", updatable = false) // always when creating entity their should be a date
     private Date createdAt;
 
     @PrePersist // for take actual date and time
