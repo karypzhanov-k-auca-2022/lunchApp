@@ -20,6 +20,7 @@ import org.kair.lunchApp.model.enums.UserRole;
 @Entity // JPA annotation to make this class an entity
 @Table(name = "user") // JPA annotation to specify the table name
 public class UserEntity {
+
     @Id
     @GeneratedValue
     @Column(columnDefinition = "BINARY(16)", nullable = false, unique = true) // column is necessary and unique
