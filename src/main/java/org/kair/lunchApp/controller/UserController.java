@@ -21,7 +21,7 @@ public class UserController {
     public void createUser(@RequestBody User user) {
         System.out.println("Creating user: " + user);
         userService.createUser(user);
-    }
+    } // write test for method POST in LunchAppApplicationTests.java
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)

@@ -1,9 +1,11 @@
 package org.kair.lunchApp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.kair.lunchApp.dto.User;
+import org.kair.lunchApp.model.UserEntity;
 import org.kair.lunchApp.model.enums.UserRole;
 import org.kair.lunchApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
@@ -42,7 +45,7 @@ class LunchAppApplicationTests {
     }
 
     @Autowired
-    private MockMvc mockMvc; //
+    private MockMvc mockMvc;
     @Autowired
     private ObjectMapper objectMapper; // for convert object -> json and json -> object like in Postman
     @Autowired
@@ -78,5 +81,22 @@ class LunchAppApplicationTests {
                 .createdAt(new Date(System.currentTimeMillis()))
                 .build();
 
+    }
+
+    @Test
+    void shouldReturnAllUsers(){
+        UserEntity user1 = new UserEntity();
+        user1.setUsername("Kair_20");
+        user1.setPassword("123");
+        userRepository.save(user1);
+
+        UserEntity user2 = new UserEntity();
+        user2.setUsername("Kair_40");
+        user2.setPassword("321");
+        userRepository.save(user2);
+
+        List<UserEntity> users = userRepository.findAll();
+
+        Assertions.assertEquals(2, users.size());
     }
 }

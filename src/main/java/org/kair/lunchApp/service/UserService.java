@@ -24,7 +24,7 @@ public class UserService {
                 .surname(user.getSurname())
                 .balance(user.getBalance())
                 .userRole(user.getUserRole())
-                .createdAt((Date) user.getCreatedAt())
+                .createdAt(user.getCreatedAt())
                 .build();
 
         userRepository.save(userEntity);
