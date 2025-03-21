@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.util.UUID;
 
 import org.kair.lunchApp.model.enums.UserRole;
@@ -50,6 +50,6 @@ public class UserEntity {
 
     @PrePersist // for take actual date and time
     protected void onCreate() {
-        createdAt = new Date(System.currentTimeMillis());
+        createdAt = new Date();
     }
 }
