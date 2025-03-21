@@ -8,7 +8,6 @@ import java.util.List;
 
 import lombok.RequiredArgsConstructor;
 
-
 @RestController
 @RequestMapping("/api/users")
 @RequiredArgsConstructor // Lombok will generate a constructor with all final fields
@@ -20,6 +19,7 @@ public class UserController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createUser(@RequestBody User user) {
+        System.out.println("Creating user: " + user);
         userService.createUser(user);
     }
 
