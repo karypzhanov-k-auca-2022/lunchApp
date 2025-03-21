@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: mysql:8.3
+    image: mysql:8.3 # for testing through MySQLContainer
     container_name: lunch_db
     restart: always
     environment:
